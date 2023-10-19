@@ -381,3 +381,48 @@ Circular_Node_t * Reverse_List(Circular_Node_t* Last){
     }
     return Last;
 }
+
+
+/******************************************************************************************************************************/
+/*Function:     Concatenate Two Circular Linkedlists
+* Parameters:  -Frist_List_Last[Circular_Node_t*]: a pointer to the end of the frist circular linked list
+*              -Second_List_Last[Circular_Node_t*]: a pointer to the end of the second circular linked list
+* Return:       a pointer to the end of the list generated from concatenating*/
+Circular_Node_t * Concatenate_Two_Circular_Linkedlists(Circular_Node_t* Frist_List_Last, Circular_Node_t* Second_List_Last ){
+
+    Circular_Node_t * Concatenated_List =NULL;    //Returning Pointer
+
+    /*If there is no nodes in frist list*/
+    if(Frist_List_Last == NULL){
+        //And there are nodes in second list
+        if(Second_List_Last != NULL){
+            Concatenated_List = Second_List_Last;
+        
+        }else{ //There is no nodes in both lists
+            /*Do Nothing*/ 
+            //As in this case the function should returns null and already Concatenated_List was initialized by null 
+            }
+
+    /*If there are nodes in frist list*/
+    }else {
+        //And there is no nodes in second list
+        if(Second_List_Last == NULL){
+            Concatenated_List = Frist_List_Last;
+
+        }else{ //There are nodes in both lists
+            /*By Using Insertion_after_a_Node function, we can insert nodes of second list into frist list node by node until Last node in second list*/
+            Circular_Node_t * ptr = Second_List_Last->link;
+            do{
+                //After last node in frist list insert second list nodes.. node by node using ptr pointer 
+                Frist_List_Last = Insertion_after_a_Node(Frist_List_Last->info,Frist_List_Last,ptr->info);
+
+                //Traverse
+                ptr= ptr->link;
+            }while(ptr != Second_List_Last->link);
+            /*So after insertion, the Last of this compound list will be modified Frist_List_Last [that modified by Insertion_after_a_Node function]*/
+            Concatenated_List = Frist_List_Last; //Update the returning pointer with the Last pointer of compound list
+        }
+    }
+    
+    return Concatenated_List;
+}
