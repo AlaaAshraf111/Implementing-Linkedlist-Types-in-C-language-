@@ -16,5 +16,6 @@ Various advanced data structures can be implemented using a linked list like a s
 1. Single linked list
 2. Double linkedlist
 3. Circular linked list
+   
    There are other compound types of single, double, and circular linked lists, such as Circular-Double 
    linked list and Header linked list.
