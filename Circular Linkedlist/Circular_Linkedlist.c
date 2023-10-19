@@ -358,7 +358,7 @@ Circular_Node_t* Delete_with_Particular_Data( Circular_Node_t * Last, u16 data){
 * Parameters:  -Last[Circular_Node_t*]: a pointer to the end of the list
 * Return:       a pointer to the end of the list after reversing*/
 Circular_Node_t * Reverse_List(Circular_Node_t* Last){
-    u16 count = 1;
+
     if(Last == NULL){
         printf("\nThe list is Empty\n");
     }else if((Last->link == Last)){            //The list has ONLY node the Last
@@ -374,8 +374,7 @@ Circular_Node_t * Reverse_List(Circular_Node_t* Last){
             //Traverse
             prev = ptr;
             ptr = next;
-            printf("\npass no. %d\n",count);
-            count ++;
+
         }while(prev != Last );  //With prev pointer returning to the Last node means passing through whole list
 
         Last =ptr;    //Update the reference Last with the pervious frist node (the new last node after Reversing)
