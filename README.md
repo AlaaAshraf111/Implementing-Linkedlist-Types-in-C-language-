@@ -2,6 +2,7 @@
 Implementation of functions that can handle linkedlist data using C language  
 ## What is Linked List?
 A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers.
+
 ![Linked-List-Data-Structure](https://github.com/AlaaAshraf111/Implementing-Linkedlist-Types-in-C-language-/assets/99663447/ab54f4ac-bc37-44fa-855e-4524fb5a8f19)
 ## Why linked list data structure needed?
 ### Dynamic Data structure: 
