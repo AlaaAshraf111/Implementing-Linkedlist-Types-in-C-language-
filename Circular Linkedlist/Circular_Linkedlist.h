@@ -92,6 +92,14 @@ Circular_Node_t* Delete_with_Particular_Data( Circular_Node_t * Last, u16 data);
 Circular_Node_t * Reverse_List(Circular_Node_t* Last);
 
 
+/******************************************************************************************************************************/
+/*Function:     Concatenate Two Circular Linkedlists
+* Parameters:  -Frist_List_Last[Circular_Node_t*]: a pointer to the end of the frist circular linked list
+*              -Second_List_Last[Circular_Node_t*]: a pointer to the end of the second circular linked list
+* Return:       a pointer to the end of the list generated from concatenating*/
+Circular_Node_t * Concatenate_Two_Circular_Linkedlists(Circular_Node_t* Frist_List_Last, Circular_Node_t* Second_List_Last );
+
+
 
 /*************************************************************************/
 /**The Following Functions from Single Linkedlist Driver WITHOUT Editing**/
