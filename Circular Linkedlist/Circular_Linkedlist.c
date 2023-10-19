@@ -246,31 +246,31 @@ void Insertion_before_a_Node(u16 info, Circular_Node_t * Last, u16 new_info){
         enum finding_result Check=NOT_FOUND;
 
 	if(p->info == info){  //The Node has info is frist node [Insertion before the frist node]
-	            Check=FOUND;
-	            Insertion_at_Beginning(new_info,Last);
-	        }else{
-	
-	            do{
-	                //Using enum to check on the reason of break
-	                Check=NOT_FOUND;
-	
-	                if((p->link)->info == info){            //We need the place before the node has the info so, stop at the node preivous the node with info
-	                    Check=FOUND;
-	
-	                    //the node with info if found
-	                    //Create the inserted node in the list
-	                    Circular_Node_t * temp =(Circular_Node_t*) malloc(1*sizeof(Circular_Node_t));
-	                    temp->info =new_info;
-	                    temp->link=p->link;    //makes link in temp points to the next node AND link in p (selected node) points to temp
-	                    p->link = temp;
-	                    break;
-	
-	                }
-	                //Traverse
-	                p=p->link;
-	            
-	            }while(p != Last->link);  //Return to the frist node means passing through whole list
-	        }
+	    Check=FOUND;
+	    Insertion_at_Beginning(new_info,Last);
+	}else{
+
+	    do{
+		//Using enum to check on the reason of break
+		Check=NOT_FOUND;
+
+		if((p->link)->info == info){            //We need the place before the node has the info so, stop at the node preivous the node with info
+		    Check=FOUND;
+
+		    //the node with info if found
+		    //Create the inserted node in the list
+		    Circular_Node_t * temp =(Circular_Node_t*) malloc(1*sizeof(Circular_Node_t));
+		    temp->info =new_info;
+		    temp->link=p->link;    //makes link in temp points to the next node AND link in p (selected node) points to temp
+		    p->link = temp;
+		    break;
+
+		}
+		//Traverse
+		p=p->link;
+	    
+	    }while(p != Last->link);  //Return to the frist node means passing through whole list
+	}
 
         if(Check == NOT_FOUND){
             printf("\nThe Node has the %d is NOT_FOUND in the list\n",info);
