@@ -94,10 +94,10 @@ Circular_Node_t * Reverse_List(Circular_Node_t* Last);
 
 /******************************************************************************************************************************/
 /*Function:     Concatenate Two Circular Linkedlists
-* Parameters:  -Frist_List_Last[Circular_Node_t*]: a pointer to the end of the frist circular linked list
+* Parameters:  -First_List_Last[Circular_Node_t*]: a pointer to the end of the first circular linked list
 *              -Second_List_Last[Circular_Node_t*]: a pointer to the end of the second circular linked list
 * Return:       a pointer to the end of the list generated from concatenating*/
-Circular_Node_t * Concatenate_Two_Circular_Linkedlists(Circular_Node_t* Frist_List_Last, Circular_Node_t* Second_List_Last );
+Circular_Node_t * Concatenate_Two_Circular_Linkedlists(Circular_Node_t* First_List_Last, Circular_Node_t* Second_List_Last );
 
 
 
