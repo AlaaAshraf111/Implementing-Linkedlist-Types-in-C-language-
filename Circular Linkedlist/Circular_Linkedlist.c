@@ -37,7 +37,7 @@ Circular_Node_t * Insertion_at_Empty_List(u16 info, Circular_Node_t * Last){
     Circular_Node_t * temp =(Circular_Node_t*) malloc(sizeof(Circular_Node_t));
     
     temp->info =info;
-    //Note: the order is important, as at frist the Last is NULL and has no link    
+    //Note: the order is important, as at first the Last is NULL and has no link    
     Last=temp;                   /*Update the reference to the list*/
     Last->link=temp;          /*Make the new node points to itself*/
     return Last;
@@ -130,7 +130,7 @@ void Display_List(Circular_Node_t * Last){
     do{            //Note: using this condition while(p != Last) will not display the last info
         printf("The node no. %d and its data is %d\n", i++ , p->info);
         p=p->link;
-    }while(p != Last->link);  //Return to the frist node means passing through whole list
+    }while(p != Last->link);  //Return to the first node means passing through whole list
     }
 }
 
@@ -159,7 +159,7 @@ s16 Search_for_Node(u16 data , Circular_Node_t * Last){
         }else{/*Do Nothing*/}
         position++;   //In 1st Pass, poistion will be 1 and increases to 2, So there is a need to initialize it with 1
         p=p->link;
-    }while(p != Last->link);  //Return to the frist node means passing through whole list
+    }while(p != Last->link);  //Return to the first node means passing through whole list
 
     if ((p==Last->link) && (position > 1))   //Check on NOT_FOUND & (position>1) means passing through whole list
     { 
@@ -197,9 +197,9 @@ Circular_Node_t * Insertion_after_a_Node(u16 info, Circular_Node_t * Last, u16 n
             }
             //Traverse
             p=p->link;
-        }while(p != Last->link);  //Return to the frist node means passing through whole list
+        }while(p != Last->link);  //Return to the first node means passing through whole list
 
-        //Out of this loop with p points to the Last->link Node (frist node) OR p points to the Node has info
+        //Out of this loop with p points to the Last->link Node (first node) OR p points to the Node has info
         //Check if the Node has info is found or not
         if(Check == FOUND){
 
@@ -245,7 +245,7 @@ void Insertion_before_a_Node(u16 info, Circular_Node_t * Last, u16 new_info){
         
         enum finding_result Check=NOT_FOUND;
 
-	if(p->info == info){  //The Node has info is frist node [Insertion before the frist node]
+	if(p->info == info){  //The Node has info is first node [Insertion before the first node]
 	    Check=FOUND;
 	    Insertion_at_Beginning(new_info,Last);
 	}else{
@@ -269,7 +269,7 @@ void Insertion_before_a_Node(u16 info, Circular_Node_t * Last, u16 new_info){
 		//Traverse
 		p=p->link;
 	    
-	    }while(p != Last->link);  //Return to the frist node means passing through whole list
+	    }while(p != Last->link);  //Return to the first node means passing through whole list
 	}
 
         if(Check == NOT_FOUND){
@@ -324,9 +324,9 @@ Circular_Node_t* Delete_with_Particular_Data( Circular_Node_t * Last, u16 data){
             //Traverse
             p=p->link;
 
-        }while(p != Last->link);  //Return to the frist node means passing through whole list
+        }while(p != Last->link);  //Return to the first node means passing through whole list
 
-        //Out of this loop with p returns pointing to the frist Node OR p points to the Node before that has the particular data
+        //Out of this loop with p returns pointing to the first Node OR p points to the Node before that has the particular data
         //Check if data is found or not
         if(Check == FOUND){
             //the Node has data if found
@@ -376,7 +376,7 @@ Circular_Node_t * Reverse_List(Circular_Node_t* Last){
 
         }while(prev != Last );  //With prev pointer returning to the Last node means passing through whole list
 
-        Last =ptr;    //Update the reference Last with the pervious frist node (the new last node after Reversing)
+        Last =ptr;    //Update the reference Last with the pervious first node (the new last node after Reversing)
     }
     return Last;
 }
@@ -384,15 +384,15 @@ Circular_Node_t * Reverse_List(Circular_Node_t* Last){
 
 /******************************************************************************************************************************/
 /*Function:     Concatenate Two Circular Linkedlists
-* Parameters:  -Frist_List_Last[Circular_Node_t*]: a pointer to the end of the frist circular linked list
+* Parameters:  -First_List_Last[Circular_Node_t*]: a pointer to the end of the first circular linked list
 *              -Second_List_Last[Circular_Node_t*]: a pointer to the end of the second circular linked list
 * Return:       a pointer to the end of the list generated from concatenating*/
-Circular_Node_t * Concatenate_Two_Circular_Linkedlists(Circular_Node_t* Frist_List_Last, Circular_Node_t* Second_List_Last ){
+Circular_Node_t * Concatenate_Two_Circular_Linkedlists(Circular_Node_t* First_List_Last, Circular_Node_t* Second_List_Last ){
 
     Circular_Node_t * Concatenated_List =NULL;    //Returning Pointer
 
-    /*If there is no nodes in frist list*/
-    if(Frist_List_Last == NULL){
+    /*If there is no nodes in first list*/
+    if(First_List_Last == NULL){
         //And there are nodes in second list
         if(Second_List_Last != NULL){
             Concatenated_List = Second_List_Last;
@@ -402,24 +402,24 @@ Circular_Node_t * Concatenate_Two_Circular_Linkedlists(Circular_Node_t* Frist_Li
             //As in this case the function should returns null and already Concatenated_List was initialized by null 
             }
 
-    /*If there are nodes in frist list*/
+    /*If there are nodes in first list*/
     }else {
         //And there is no nodes in second list
         if(Second_List_Last == NULL){
-            Concatenated_List = Frist_List_Last;
+            Concatenated_List = First_List_Last;
 
         }else{ //There are nodes in both lists
-            /*By Using Insertion_after_a_Node function, we can insert nodes of second list into frist list node by node until Last node in second list*/
+            /*By Using Insertion_after_a_Node function, we can insert nodes of second list into first list node by node until Last node in second list*/
             Circular_Node_t * ptr = Second_List_Last->link;
             do{
-                //After last node in frist list insert second list nodes.. node by node using ptr pointer 
-                Frist_List_Last = Insertion_after_a_Node(Frist_List_Last->info,Frist_List_Last,ptr->info);
+                //After last node in first list insert second list nodes.. node by node using ptr pointer 
+                First_List_Last = Insertion_after_a_Node(First_List_Last->info,First_List_Last,ptr->info);
 
                 //Traverse
                 ptr= ptr->link;
             }while(ptr != Second_List_Last->link);
-            /*So after insertion, the Last of this compound list will be modified Frist_List_Last [that modified by Insertion_after_a_Node function]*/
-            Concatenated_List = Frist_List_Last; //Update the returning pointer with the Last pointer of compound list
+            /*So after insertion, the Last of this compound list will be modified First_List_Last [that modified by Insertion_after_a_Node function]*/
+            Concatenated_List = First_List_Last; //Update the returning pointer with the Last pointer of compound list
         }
     }
     
