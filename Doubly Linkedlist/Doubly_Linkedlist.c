@@ -193,7 +193,7 @@ Doubly_Node_t * Insertion_before_a_Node(u32 info, Doubly_Node_t * list, u32 new_
         enum finding_result Check;
 
         /***************/
-        // //Note: This Solution doesnot work if the node has info is the frist node ... it is cancelled
+        // //Note: This Solution doesnot work if the node has info is the first node ... it is cancelled
         // while (p->next!= NULL)  //p->link (the Node before the NULL)
         // {
         //     //Using enum to check on the reason of break
@@ -244,7 +244,7 @@ Doubly_Node_t * Insertion_before_a_Node(u32 info, Doubly_Node_t * list, u32 new_
         //Check if the Node has info is found or not
         if(Check == FOUND){
             //the position if found
-            /*.... BUT if the previous node is NULL?! ... this means the node has info is the frist node*/
+            /*.... BUT if the previous node is NULL?! ... this means the node has info is the first node*/
             //if the previous node is NULL
             if(p->prev == NULL){
                 list = Insertion_at_Beginning(new_info,list);
@@ -327,11 +327,11 @@ Doubly_Node_t * Delete_A_Node( Doubly_Node_t * list, u32 data){
         //Check if the node wanted to delete is the 1st node or not
         if(list->info == data){
             Check=FOUND;
-            //Check if the frist node (that has data) is the ONLY node or not
+            //Check if the first node (that has data) is the ONLY node or not
             if(list->next == NULL){
                 list = NULL;
             }else{
-                //If the frist node (that has data) but not the only node
+                //If the first node (that has data) but not the only node
                 list=list->next;
                 list->prev=NULL;
             }
